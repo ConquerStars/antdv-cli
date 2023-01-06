@@ -62,20 +62,10 @@ async function init() {
   // possible options:
   // --default
   // --typescript / --ts
-  // --jsx
-  // --router / --vue-router
-  // --pinia
-  // --with-tests / --tests (equals to `--vitest --cypress`)
-  // --vitest
-  // --cypress
-  // --playwright
-  // --eslint
-  // --eslint-with-prettier (only support prettier through eslint for simplicity)
   // --force (for force overwriting)
   const argv = minimist(process.argv.slice(2), {
     alias: {
-      typescript: ['ts'],
-      'with-tests': ['tests']
+      typescript: ['ts']
     },
     string: ['_'],
     // all arguments are treated as booleans
@@ -107,13 +97,6 @@ async function init() {
     //   - whether to overwrite the existing directory or not?
     //   - enter a valid package name for package.json
     // - Project language: JavaScript / TypeScript
-    // - Add JSX Support?
-    // - Install Vue Router for SPA development?
-    // - Install Pinia for state management?
-    // - Add Cypress for testing?
-    // - Add Playwright for end-to-end testing?
-    // - Add ESLint for code quality?
-    // - Add Prettier for code formatting?
     result = await prompts(
       [
         {
@@ -212,7 +195,6 @@ async function init() {
   renderEslint(root, { needsTypeScript })
 
   // Render code template.
-  // prettier-ignore
   render(`code/${needsTypeScript ? 'typescript' : 'default'}`)
 
   // Render entry file (main.js/ts).
@@ -287,7 +269,6 @@ async function init() {
     console.log(`  ${bold(green(`cd ${path.relative(cwd, root)}`))}`)
   }
   console.log(`  ${bold(green(getCommand(packageManager, 'install')))}`)
-  console.log(`  ${bold(green(getCommand(packageManager, 'lint')))}`)
   console.log(`  ${bold(green(getCommand(packageManager, 'dev')))}`)
   console.log()
 }
