@@ -1,0 +1,48 @@
+{
+  "name": "antdv-cli",
+  "version": "0.0.2",
+  "description": "An easy way to start a Vue project with ant-design",
+  "type": "module",
+  "bin": {
+    "antdv": "outfile.cjs"
+  },
+  "files": [
+    "outfile.cjs",
+    "template"
+  ],
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "build": "zx ./scripts/build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConquerStars/antdv-cli.git"
+  },
+  "keywords": [],
+  "author": "Cooong <503453191@qq.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/eslint": "^8.4.10",
+    "@types/node": "^18.11.12",
+    "@types/prompts": "^2.4.2",
+    "@vue/create-eslint-config": "^0.1.3",
+    "@vue/tsconfig": "^0.1.3",
+    "esbuild": "^0.14.53",
+    "esbuild-plugin-license": "^1.2.2",
+    "kolorist": "^1.6.0",
+    "lint-staged": "^13.1.0",
+    "minimist": "^1.2.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.1",
+    "prompts": "^2.4.2",
+    "zx": "^4.3.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json}": [
+      "prettier --write"
+    ]
+  }
+}
